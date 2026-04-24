@@ -1,0 +1,6 @@
+{
+	"jsPlugins": ["./local-plugin.js"],
+	"rules": {
+		"metabolic-health-agent-custom/no-example-identifier": "error"
+	}
+}
