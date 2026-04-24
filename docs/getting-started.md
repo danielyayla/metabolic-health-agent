@@ -142,7 +142,7 @@ Default test credentials:
 - Email: `kody@kcd.dev`
 - Password: `kodylovesyou`
 
-## Build and deploy
+## Build and deploy here
 
 Build the project:
 
