@@ -1,6 +1,5 @@
 import { type MCP } from './index.ts'
-import { registerCalculatorAppResource } from './resources/calculator-app-resource.ts'
 
-export async function registerResources(agent: MCP) {
-	await registerCalculatorAppResource(agent)
+export async function registerResources(_agent: MCP) {
+	// Phase 4: register open_dashboard MCP App resource here
 }

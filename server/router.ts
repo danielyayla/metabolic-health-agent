@@ -13,6 +13,12 @@ import { home } from './handlers/home.ts'
 import { login } from './handlers/login.ts'
 import { logout } from './handlers/logout.ts'
 import {
+	createDashboardHistoryHandler,
+	createDashboardPageHandler,
+	createDashboardSummaryHandler,
+} from './handlers/dashboard.ts'
+import { createOnboardingHandlers } from './handlers/onboarding.ts'
+import {
 	createPasswordResetConfirmHandler,
 	createPasswordResetRequestHandler,
 } from './handlers/password-reset.ts'
@@ -30,6 +36,7 @@ export function createAppRouter(appEnv: AppEnv) {
 		},
 	})
 	const chatThreadsHandler = createChatThreadsHandler(appEnv)
+	const onboardingHandlers = createOnboardingHandlers(appEnv)
 
 	router.map(routes.home, home)
 	router.map(routes.chat, chat)
@@ -42,6 +49,11 @@ export function createAppRouter(appEnv: AppEnv) {
 	router.map(routes.login, login)
 	router.map(routes.signup, signup)
 	router.map(routes.account, account)
+	router.map(routes.onboarding, onboardingHandlers.getHandler)
+	router.map(routes.onboardingSubmit, onboardingHandlers.postHandler)
+	router.map(routes.dashboard, createDashboardPageHandler(appEnv))
+	router.map(routes.dashboardSummary, createDashboardSummaryHandler(appEnv))
+	router.map(routes.dashboardHistory, createDashboardHistoryHandler(appEnv))
 	router.map(routes.auth, createAuthHandler(appEnv))
 	router.map(routes.session, session)
 	router.map(routes.logout, logout)
